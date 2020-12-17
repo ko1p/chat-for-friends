@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="20a546c5-6d18-4231-9070-0d5aa21a13a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chat/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Chat/Chat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Room/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Room/Room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="20a546c5-6d18-4231-9070-0d5aa21a13a9" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +11,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lXybKR5ppnnQBljHjb8VyxMkc0" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -35,6 +27,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -57,7 +50,16 @@
       <workItem from="1608191902462" duration="3049000" />
       <workItem from="1608195234312" duration="361000" />
       <workItem from="1608199738262" duration="1535000" />
-      <workItem from="1608202728882" duration="3430000" />
+      <workItem from="1608202728882" duration="3822000" />
+      <workItem from="1608211512897" duration="413000" />
+      <workItem from="1608212375558" duration="605000" />
+      <workItem from="1608212998169" duration="162000" />
+      <workItem from="1608213174486" duration="367000" />
+      <workItem from="1608213570329" duration="198000" />
+      <workItem from="1608213783455" duration="48000" />
+      <workItem from="1608214572901" duration="39000" />
+      <workItem from="1608214621586" duration="120000" />
+      <workItem from="1608214778798" duration="78000" />
     </task>
     <task id="LOCAL-00001" summary="Инициировал новое CRA приложение, убрал лишнее, поправил метатеги, поставил временный фавикон.">
       <created>1607759232876</created>
@@ -73,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608194948294</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавил backend, прокомментировал код, сделал некоторые скрипты в package.json.">
+      <created>1608211433999</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608211433999</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -82,6 +91,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Инициировал новое CRA приложение, убрал лишнее, поправил метатеги, поставил временный фавикон." />
     <MESSAGE value="Сделал компонент для логина, компонент для присоединения к чат-комнате и саму комнату." />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал компонент для логина, компонент для присоединения к чат-комнате и саму комнату." />
+    <MESSAGE value="Добавил backend, прокомментировал код, сделал некоторые скрипты в package.json." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил backend, прокомментировал код, сделал некоторые скрипты в package.json." />
   </component>
 </project>
