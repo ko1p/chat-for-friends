@@ -6,15 +6,15 @@ import {setChatId, setLogin} from "../../store/actions/actions";
 
 class Login extends Component {
 
-    getChatId = () => {
-        return `${Date.now()}`
+    getChatId = () => { // функция генерирует id для чата, который отображается в браузере при создании комнаты
+        return `${Date.now()}` // id это timestamp в момент создания чата
     }
 
     setLoginHandler = (e) => {
         e.preventDefault();
         const login = e.target.login.value;
         this.props.setLogin(login);
-        const chatId = this.props.match.params.chatId || this.getChatId();
+        const chatId = this.props.match.params.chatId || this.getChatId(); // Если пользователь перешёл по ссылке, то подключится к существвующему чату, если нет, то создаст новый
         this.props.setChatId(chatId);
         this.props.history.push(`/chat/${chatId}`);
     }
@@ -43,8 +43,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        setLogin: login => dispatch(setLogin(login)),
-        setChatId: chatId => dispatch(setChatId(chatId))
+        setLogin: login => dispatch(setLogin(login)), // сохранение в store логина пользователя
+        setChatId: chatId => dispatch(setChatId(chatId)) // сохранение в store id чата
     }
 }
 

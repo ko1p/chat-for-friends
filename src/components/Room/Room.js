@@ -13,20 +13,19 @@ import socket from "../../socket";
 class Chat extends Component {
     constructor(props) {
         super(props);
-        this.msgsRef = React.createRef();
+        this.msgsRef = React.createRef(); // ссылка на div с сообщениями
     }
 
     componentDidMount() {
-        const chatId = this.props.chatId;
-        socket.emit("chat_join", {chatId: chatId, name: this.props.login});
-        socket.emit("get_users", ({chatId}));
-        socket.on('user_disconnect', users => {
+        const chatId = this.props.chatId; // получаю из store id чата
+        socket.emit("chat_join", {chatId: chatId, name: this.props.login}); // высылаю информацию с id чата и login для присоединения к комнате
+        socket.on('user_disconnect', users => { // при событии дисконекта с сервера обновлю список пользователей в чате
             this.props.setChatUserList(users)
         });
-        socket.on('chat_message', (msgInfo) => {
+        socket.on('chat_message', (msgInfo) => { // если придёт сообщение, добавлю его в store
             this.props.setChatMessages(msgInfo)
         });
-        socket.on('user_join', (users) => {
+        socket.on('user_join', (users) => { // при присоединении к моей комнате обновлю список пользователей в чате
             this.props.setChatUserList(users)
         });
     }
@@ -35,7 +34,7 @@ class Chat extends Component {
         this.scrollToBottom();
     }
 
-    onClickHandler = () => {
+    onClickHandler = () => { // фу-ция формирующая и отправляющая инофрмацию о новом сообщении на сервер
         const messageInfo = {
             chatId: this.props.chatId,
             name: this.props.login,
@@ -45,16 +44,7 @@ class Chat extends Component {
         this.props.clearCurrentMessage();
     }
 
-    setLoginHandler = (e) => {
-        e.preventDefault();
-        const login = e.target.login.value;
-        const chatId = this.props.match.params.chatId;
-        this.props.setLogin(login);
-        this.props.setChatId(chatId);
-        this.props.history.push(`/chat/${chatId}`);
-    }
-
-    scrollToBottom = () => {
+    scrollToBottom = () => { // фу-ция опускает скролл с сообщениями в самый низ
         this.msgsRef.current.scrollTo(0, this.msgsRef.current.scrollHeight);
     }
 
@@ -117,8 +107,8 @@ function mapDispatchToProps(dispatch) {
         setLogin: login => dispatch(setLogin(login)),
         setCurrentMessage: msg => dispatch(setCurrentMessage(msg)),
         clearCurrentMessage: () => dispatch(clearCurrentMessage()),
-        setChatUserList: users => dispatch(setChatUserList(users)),
-        setChatMessages: msgInfo => dispatch(setChatMessages(msgInfo)),
+        setChatUserList: users => dispatch(setChatUserList(users)), // обновление списка пользователей в чате
+        setChatMessages: msgInfo => dispatch(setChatMessages(msgInfo)), // обновление списка сообщений чата
     }
 }
 

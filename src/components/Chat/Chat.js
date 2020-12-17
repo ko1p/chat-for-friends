@@ -8,7 +8,7 @@ import Login from "../Login/Login";
 class Chat extends Component {
     render() {
         return (
-            this.props.login && this.props.chatId ?
+            this.props.login && this.props.chatId ? // если пользователь уже логинился, то он перейдёт в чат, если нет, то будет указывать логин
                 <Room />
                 :
                 <Login />
@@ -22,10 +22,10 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        setChatId: chatId => dispatch(setChatId(chatId)),
-        setLogin: login => dispatch(setLogin(login)),
-        setCurrentMessage: msg => dispatch(setCurrentMessage(msg)),
-        clearCurrentMessage: () => dispatch(clearCurrentMessage()),
+        setChatId: chatId => dispatch(setChatId(chatId)), // сохранение в store логина пользователя
+        setLogin: login => dispatch(setLogin(login)), // сохранение в store id чата
+        setCurrentMessage: msg => dispatch(setCurrentMessage(msg)), // набранное в поле ввода сообщение
+        clearCurrentMessage: () => dispatch(clearCurrentMessage()), // очищается поле ввода после отправки сообщения
     }
 }
 
