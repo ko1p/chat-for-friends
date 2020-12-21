@@ -1,60 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25c30dfc-5b18-4329-8eb5-2d66b447c62c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/utils/getCurrentTime.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/yarn.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/debug.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
-    </list>
-    <list id="e3d61ef6-8ba4-4469-9f6b-a10c3f2d95a9" name="Разбил проект обратно на 2 части - бэкенд и фронтенд." comment="Разбил проект обратно на 2 части - бэкенд и фронтенд.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/chat-frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="25c30dfc-5b18-4329-8eb5-2d66b447c62c" name="Default Changelist" comment="Сделал небольшую декомпозицию на бэкенде">
+      <change afterPath="$PROJECT_DIR$/backend/soket/soket.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chat/Chat.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Chat/Chat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Room/Room.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Room/Room.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/roboto-slab-v12-latin_cyrillic-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/roboto-slab-v12-latin_cyrillic-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/roboto-slab-v12-latin_cyrillic-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/roboto-slab-v12-latin_cyrillic-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fonts/roboto-slab-v12-latin_cyrillic-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/utils/getCurrentTime.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/socket.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/actionTypes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/actions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/initialState.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/reducer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
+    <list id="e3d61ef6-8ba4-4469-9f6b-a10c3f2d95a9" name="Разбил проект обратно на 2 части - бэкенд и фронтенд." comment="Разбил проект обратно на 2 части - бэкенд и фронтенд." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,6 +33,11 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Антон\Desktop\chat-for-friends" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -90,6 +49,8 @@
       <updated>1608443067674</updated>
       <workItem from="1608443070695" duration="1915000" />
       <workItem from="1608445000264" duration="673000" />
+      <workItem from="1608445968437" duration="3517000" />
+      <workItem from="1608561151155" duration="1436000" />
     </task>
     <task id="LOCAL-00001" summary="Разбил проект обратно на 2 части - бэкенд и фронтенд.">
       <created>1608444723075</created>
