@@ -4,7 +4,7 @@ import {
     SET_CURRENT_MESSAGE,
     CLEAR_CURRENT_MESSAGE,
     SET_CHAT_USER_LIST,
-    SET_CHAT_MESSAGES
+    SET_CHAT_MESSAGES, SET_CHAT_MESSAGE
 } from './actionTypes';
 
 export function setLogin (login) {
@@ -43,9 +43,16 @@ export function setChatUserList (users) {
     }
 }
 
-export function setChatMessages (msgInfo) {
+export function setChatMessage (msgInfo) {
+    return {
+        type: SET_CHAT_MESSAGE,
+        msgInfo
+    }
+}
+
+export function setChatMessages (messages) {
     return {
         type: SET_CHAT_MESSAGES,
-        msgInfo
+        messages
     }
 }

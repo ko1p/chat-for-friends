@@ -5,7 +5,7 @@ import {
     setChatUserList,
     clearCurrentMessage,
     setCurrentMessage,
-    setChatMessages
+    setChatMessage, setChatMessages
 } from "../../store/actions/actions";
 import socket from "../../socket";
 
@@ -21,11 +21,15 @@ export default function Chat() {
             dispatch(setChatUserList(users));
         });
         socket.on('chat_message', (msgInfo) => { // если придёт сообщение, добавлю его в store
-            dispatch(setChatMessages(msgInfo));
+            dispatch(setChatMessage(msgInfo));
             scrollToBottom();
         });
-        socket.on('user_join', (users) => { // при присоединении к моей комнате обновлю список пользователей в чате
+        socket.on('user_join', (users, messages) => { // при присоединении к моей комнате обновлю список пользователей в чате
             dispatch(setChatUserList(users));
+            if (state.chat.messages.length === 0) {
+                dispatch(setChatMessages(messages));
+                scrollToBottom();
+            }
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
@@ -61,7 +65,7 @@ export default function Chat() {
                 <div className="chat-messages">
                     <div className="messages" ref={msgsRef}>
                         {
-                            state.chat.messages.map((message, index) => {
+                            state.chat.messages && state.chat.messages.map((message, index) => {
                                 const cls = message.name === state.login ? 'message message_my-msg' : 'message';
                                 return (
                                     <div className={cls} key={index + '_chat_msg'}>

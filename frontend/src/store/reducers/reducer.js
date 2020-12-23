@@ -4,7 +4,7 @@ import {
     CLEAR_CURRENT_MESSAGE,
     SET_CHATID,
     SET_CURRENT_MESSAGE,
-    SET_LOGIN, SET_CHAT_MESSAGES
+    SET_LOGIN, SET_CHAT_MESSAGE, SET_CHAT_MESSAGES
 } from "../actions/actionTypes";
 
 export default function reducer (state = initialState, action) {
@@ -42,7 +42,7 @@ export default function reducer (state = initialState, action) {
                 }
             }
         }
-        case SET_CHAT_MESSAGES: {
+        case SET_CHAT_MESSAGE: {
             return {
                 ...state,
                 chat: {
@@ -51,6 +51,15 @@ export default function reducer (state = initialState, action) {
                         ...state.chat.messages,
                         action.msgInfo
                     ]
+                }
+            }
+        }
+        case SET_CHAT_MESSAGES: {
+            return {
+                ...state,
+                chat: {
+                    ...state.chat,
+                    messages: action.messages
                 }
             }
         }

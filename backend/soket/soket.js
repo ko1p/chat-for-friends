@@ -30,7 +30,9 @@ module.exports = function logger(http) {
                 rooms.get(chatId).get('users').set(socket.id, name);
             }
             const users = [...rooms.get(chatId).get('users').values()]; // формируем список пользователей в конкретной комнате
-            io.to(chatId).emit('user_join', users); // высылаем список клиентов на "фронт"
+            const messages = [...rooms.get(chatId).get('messages')];
+            // io.to(chatId).emit('user_join', users); // высылаем список клиентов на "фронт"
+            io.to(chatId).emit('user_join', users, messages); // высылаем список клиентов на "фронт"
         })
 
         socket.on('chat_message', ({chatId, name, msg}) => { // при событии "chat_mesage"
@@ -40,6 +42,7 @@ module.exports = function logger(http) {
             };
             rooms.get(chatId).get('messages').push(messageInfo); // добавляю объект с информацией в "базу данных" на сервере
             io.to(chatId).emit('chat_message', messageInfo); // высылаю данные в конкретную комнату
+            console.log(rooms.get(chatId).get('messages'));
         })
 
         socket.on('disconnect', () => { // при событии отключения от сокета
