@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25c30dfc-5b18-4329-8eb5-2d66b447c62c" name="Default Changelist" comment="Сделал небольшую декомпозицию на бэкенде">
-      <change afterPath="$PROJECT_DIR$/backend/soket/soket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="25c30dfc-5b18-4329-8eb5-2d66b447c62c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/chat-for-friends.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Chat/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Chat/Chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Room/Room.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Room/Room.js" afterDir="false" />
+    </list>
+    <list id="f1f9bdd9-3443-4c33-85f1-cece547db646" name="Подготовка перед eject." comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
     </list>
     <list id="e3d61ef6-8ba4-4469-9f6b-a10c3f2d95a9" name="Разбил проект обратно на 2 части - бэкенд и фронтенд." comment="Разбил проект обратно на 2 части - бэкенд и фронтенд." />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +51,7 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="25c30dfc-5b18-4329-8eb5-2d66b447c62c" name="Default Changelist" comment="" />
       <changelist id="e3d61ef6-8ba4-4469-9f6b-a10c3f2d95a9" name="Разбил проект обратно на 2 части - бэкенд и фронтенд." comment="" />
+      <changelist id="f1f9bdd9-3443-4c33-85f1-cece547db646" name="Подготовка перед eject." comment="" />
       <created>1608443067674</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -51,6 +60,9 @@
       <workItem from="1608445000264" duration="673000" />
       <workItem from="1608445968437" duration="3517000" />
       <workItem from="1608561151155" duration="1436000" />
+      <workItem from="1608625834245" duration="2575000" />
+      <workItem from="1608665482383" duration="186000" />
+      <workItem from="1608706524772" duration="4528000" />
     </task>
     <task id="LOCAL-00001" summary="Разбил проект обратно на 2 части - бэкенд и фронтенд.">
       <created>1608444723075</created>
@@ -80,7 +92,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608445333346</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Подготовка перед eject.">
+      <created>1608625880292</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608625880292</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Подготовка перед eject.">
+      <created>1608626564820</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608626564820</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +126,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Разбил проект обратно на 2 части - бэкенд и фронтенд." />
-    <option name="LAST_COMMIT_MESSAGE" value="Разбил проект обратно на 2 части - бэкенд и фронтенд." />
+    <MESSAGE value="Подготовка перед eject." />
+    <option name="LAST_COMMIT_MESSAGE" value="Подготовка перед eject." />
   </component>
 </project>
