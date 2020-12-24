@@ -13,6 +13,7 @@ export default function Chat() {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
     const msgsRef = useRef();
+    const formRef = useRef();
 
     useEffect(() => {
         const chatId = state.chatId; // получаю из store id чата
@@ -34,7 +35,8 @@ export default function Chat() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
-    const onClickHandler = () => { // фу-ция формирующая и отправляющая инофрмацию о новом сообщении на сервер
+    const sendMessage = (e) => { // фу-ция формирующая и отправляющая инофрмацию о новом сообщении на сервер
+        e.preventDefault();
         const messageInfo = {
             chatId: state.chatId,
             name: state.login,
@@ -42,6 +44,13 @@ export default function Chat() {
         };
         socket.emit("chat_message", messageInfo);
         dispatch(clearCurrentMessage());
+    }
+
+    const onEnterPress = (e) => { // отправка сообщения по Enter
+        if(e.keyCode === 13 && e.shiftKey === false) {
+            e.preventDefault();
+            sendMessage(e);
+        }
     }
 
     const scrollToBottom = () => { // фу-ция опускает скролл с сообщениями в самый низ
@@ -78,14 +87,16 @@ export default function Chat() {
                             })
                         }
                     </div>
-                    <form>
+                    <form ref={formRef} onSubmit={e => sendMessage(e)}>
                             <textarea
                                 value={state.currentMessage}
                                 onChange={(e) => dispatch(setCurrentMessage(e.target.value))}
                                 className="form-control"
-                                rows="3">
+                                rows="3"
+                                onKeyDown={(e) => onEnterPress(e)}
+                                >
                             </textarea>
-                        <button onClick={onClickHandler} type="button" className="btn">
+                        <button type="submit" className="btn">
                             Отправить
                         </button>
                     </form>
