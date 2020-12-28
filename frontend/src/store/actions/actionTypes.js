@@ -1,4 +1,5 @@
 export const SET_LOGIN = 'SET_LOGIN';
+export const SET_USERID = 'SET_USERID';
 export const SET_CHATID = 'SET_CHATID';
 export const SET_CURRENT_MESSAGE = 'SET_CURRENT_MESSAGE';
 export const CLEAR_CURRENT_MESSAGE = 'CLEAR_CURRENT_MESSAGE';

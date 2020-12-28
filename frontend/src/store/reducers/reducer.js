@@ -4,7 +4,7 @@ import {
     CLEAR_CURRENT_MESSAGE,
     SET_CHATID,
     SET_CURRENT_MESSAGE,
-    SET_LOGIN, SET_CHAT_MESSAGE, SET_CHAT_MESSAGES
+    SET_LOGIN, SET_CHAT_MESSAGE, SET_CHAT_MESSAGES, SET_USERID
 } from "../actions/actionTypes";
 
 export default function reducer (state = initialState, action) {
@@ -19,6 +19,12 @@ export default function reducer (state = initialState, action) {
             return {
                 ...state,
                 chatId: action.chatId
+            }
+        }
+        case SET_USERID: {
+            return {
+                ...state,
+                userId: action.userId
             }
         }
         case SET_CURRENT_MESSAGE: {

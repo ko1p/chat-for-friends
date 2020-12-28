@@ -4,11 +4,10 @@ import {
     SET_CURRENT_MESSAGE,
     CLEAR_CURRENT_MESSAGE,
     SET_CHAT_USER_LIST,
-    SET_CHAT_MESSAGES, SET_CHAT_MESSAGE
+    SET_CHAT_MESSAGES, SET_CHAT_MESSAGE, SET_USERID
 } from './actionTypes';
 
 export function setLogin (login) {
-    // ....
     return {
         type: SET_LOGIN,
         login
@@ -16,10 +15,16 @@ export function setLogin (login) {
 }
 
 export function setChatId (chatId) {
-    // ....
     return {
         type: SET_CHATID,
         chatId
+    }
+}
+
+export function setUserId (userId) {
+    return {
+        type: SET_USERID,
+        userId
     }
 }
 

@@ -1,0 +1,16 @@
+.video {
+    margin: 0 auto;
+    width: 640px;
+    height: 240px;
+    background-color: #f5f0f0;
+}
+
+.video__output {
+    width: 320px;
+    height: 240px;
+}
+
+.video__input {
+    width: 320px;
+    height: 240px;
+}

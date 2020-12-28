@@ -4,7 +4,8 @@
   "description": "test chat ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
   },
   "keywords": [
     "chat",
@@ -16,6 +17,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "peer": "^0.6.1",
     "socket.io": "^3.0.4"
   }
 }
