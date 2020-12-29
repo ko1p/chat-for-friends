@@ -5,7 +5,14 @@ import {
     setChatUserList,
     clearCurrentMessage,
     setCurrentMessage,
-    setChatMessage, setChatMessages, setUserId,
+    setChatMessage,
+    setChatMessages,
+    setUserId,
+    setStream,
+    setReceivingCall,
+    setCaller,
+    setCallerSignal,
+    setCallAccepted,
 } from "../../store/actions/actions";
 import Peer from "simple-peer";
 import io from "socket.io-client";
@@ -15,13 +22,12 @@ export default function Chat() {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
 
-    const [yourID, setYourID] = useState("");
-    const [users, setUsers] = useState({});
-    const [stream, setStream] = useState();
-    const [receivingCall, setReceivingCall] = useState(false);
-    const [caller, setCaller] = useState("");
-    const [callerSignal, setCallerSignal] = useState();
-    const [callAccepted, setCallAccepted] = useState(false);
+    // const [users, setUsers] = useState({});
+    // const [stream, setStream] = useState();
+    // const [receivingCall, setReceivingCall] = useState(false);
+    // const [caller, setCaller] = useState("");
+    // const [callerSignal, setCallerSignal] = useState();
+    // const [callAccepted, setCallAccepted] = useState(false);
 
     const socket = useRef();
     const msgsRef = useRef();
@@ -32,31 +38,32 @@ export default function Chat() {
 
     useEffect(() => {
         socket.current = io('http://localhost:3000');
-        // console.log(socket.current.id)
-        // dispatch(setUserId(socket.current.id)); // добавил в state userId === socket.id
 
         navigator.mediaDevices.getUserMedia({video: true, audio: true})
             .then(stream => {
-                setStream(stream);
+                console.log('установил свой локальный видео стрим')
+                dispatch(setStream(stream));
                 if (outputVideoRef.current) {
                     outputVideoRef.current.srcObject = stream;
                 }
             });
 
         socket.current.on('yourId', id => {
-            //setYourID(id)
             dispatch(setUserId(id)); // добавил в state userId === socket.id
         });
 
-        socket.current.on('allUsers', users => {
-            setUsers(users)
-        });
+        // socket.current.on('allUsers', users => {
+        //     setUsers(users)
+        // });
 
         socket.current.on('hey', data => {
-            console.log('hey')
-            setReceivingCall(true);
-            setCaller(data.from);
-            setCallerSignal(data.signal);
+            console.log('hey, прими сигнал');
+            dispatch(setReceivingCall(true))
+            // setReceivingCall(true);
+            // setCaller(data.from);
+            dispatch(setCaller(data.from));
+            // setCallerSignal(data.signal);
+            dispatch(setCallerSignal(data.signal));
         });
 
         socket.current.emit("chat_join", {chatId: state.chatId, name: state.login, userId: state.userId}); // высылаю информацию с id чата и login для присоединения к комнате
@@ -85,8 +92,7 @@ export default function Chat() {
 
 
     const callPeer = id => {
-        console.log(state)
-        console.log(id)
+        console.log('звоню пиру ', id)
         const peer = new Peer({
             initiator: true,
             trickle: false,
@@ -104,22 +110,24 @@ export default function Chat() {
                     }
                 ]
             },
-            stream: stream
+            stream: state.video.stream
         })
 
         peer.on('signal', data => {
-            console.log('signal')
-            socket.current.emit('callUser', {userToCall: id, signalData: data, from: yourID})
+            console.log('шлю сигнал другому пиру с id ', id, state.userId)
+            socket.current.emit('callUser', {userToCall: id, signalData: data, from: state.userId})
         })
 
         peer.on('stream', stream => {
+            console.log('пришёл ответный стрим', stream)
             if (inputVideoRef.current) {
+                console.log("все ок, засовываю пришедший стрим в окошко")
                 inputVideoRef.current.srcObject = stream;
             }
         })
 
         socket.current.on('callAccepted', signal => {
-            setCallAccepted(true);
+            dispatch(setCallAccepted(true));
             console.log('onCallAccept')
             //здесь логика по отображению окошек при приёме звонка
             peer.signal(signal);
@@ -128,24 +136,25 @@ export default function Chat() {
     }
 
     const acceptCall = () => {
-        setCallAccepted(true)
+        dispatch(setCallAccepted(true));
 
         const peer = new Peer({
             initiator: false,
             trickle: false,
-            stream: stream
+            stream: state.video.stream
         });
 
         peer.on('signal', data => {
             console.log('signal come')
-            socket.current.emit('acceptCall', {signal: data, to: caller})
+            socket.current.emit('acceptCall', {signal: data, to: state.video.caller})
         });
 
         peer.on('stream', stream => {
+            console.log('принял стрим, засовываю его в окошко', stream)
             inputVideoRef.current.srcObject = stream;
         })
 
-        peer.signal(callerSignal);
+        peer.signal(state.video.callerSignal);
     }
 
     const sendMessage = (e) => { // фу-ция формирующая и отправляющая инофрмацию о новом сообщении на сервер
@@ -174,11 +183,11 @@ export default function Chat() {
     return (
         <div className='container'>
             <div className="video">
+                <video ref={inputVideoRef} className="video__input" playsInline autoPlay />
                 <video ref={outputVideoRef} className="video__output" playsInline autoPlay muted/>
-                <video ref={inputVideoRef} className="video__input" playsInline autoPlay/>
             </div>
             {
-                receivingCall && <button onClick={acceptCall}>Принять звонок</button>
+                state.video.receivingCall && !state.video.callAccepted && <button onClick={acceptCall}>Принять звонок</button>
             }
             <div className="chat">
                 <div className="chat-users">

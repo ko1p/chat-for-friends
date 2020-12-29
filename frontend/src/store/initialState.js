@@ -8,7 +8,8 @@ const initialState = {
         messages: [],
     },
     video: {
-
+        receivingCall: false,
+        callAccepted: false,
     }
 }
 

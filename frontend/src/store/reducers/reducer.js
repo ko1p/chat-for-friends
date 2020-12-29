@@ -4,7 +4,14 @@ import {
     CLEAR_CURRENT_MESSAGE,
     SET_CHATID,
     SET_CURRENT_MESSAGE,
-    SET_LOGIN, SET_CHAT_MESSAGE, SET_CHAT_MESSAGES, SET_USERID
+    SET_LOGIN,
+    SET_CHAT_MESSAGE,
+    SET_CHAT_MESSAGES,
+    SET_USERID,
+    SET_STREAM,
+    SET_RECEIVING_CALL,
+    SET_CALLER,
+    SET_CALLER_SIGNAL, SET_CALL_ACCEPTED
 } from "../actions/actionTypes";
 
 export default function reducer (state = initialState, action) {
@@ -69,6 +76,52 @@ export default function reducer (state = initialState, action) {
                 }
             }
         }
+        case SET_STREAM: {
+            return {
+                ...state,
+                video: {
+                    ...state.video,
+                    stream: action.stream
+                }
+            }
+        }
+        case SET_RECEIVING_CALL: {
+            return {
+                ...state,
+                video: {
+                    ...state.video,
+                    receivingCall: action.boolean
+                }
+            }
+        }
+        case SET_CALLER: {
+            return {
+                ...state,
+                video: {
+                    ...state.video,
+                    caller: action.caller
+                }
+            }
+        }
+        case SET_CALLER_SIGNAL: {
+            return {
+                ...state,
+                video: {
+                    ...state.video,
+                    callerSignal: action.signal
+                }
+            }
+        }
+        case SET_CALL_ACCEPTED: {
+            return {
+                ...state,
+                video: {
+                    ...state.video,
+                    callAccepted: action.boolean
+                }
+            }
+        }
         default: return state;
+
     }
 }

@@ -4,7 +4,14 @@ import {
     SET_CURRENT_MESSAGE,
     CLEAR_CURRENT_MESSAGE,
     SET_CHAT_USER_LIST,
-    SET_CHAT_MESSAGES, SET_CHAT_MESSAGE, SET_USERID
+    SET_CHAT_MESSAGES,
+    SET_CHAT_MESSAGE,
+    SET_USERID,
+    SET_STREAM,
+    SET_RECEIVING_CALL,
+    SET_CALLER,
+    SET_CALLER_SIGNAL,
+    SET_CALL_ACCEPTED
 } from './actionTypes';
 
 export function setLogin (login) {
@@ -61,3 +68,39 @@ export function setChatMessages (messages) {
         messages
     }
 }
+
+export function setStream (stream) {
+    return {
+        type: SET_STREAM,
+        stream
+    }
+}
+
+export function setReceivingCall (boolean) {
+    return {
+        type: SET_RECEIVING_CALL,
+        boolean
+    }
+}
+
+export function setCaller (caller) {
+    return {
+        type: SET_CALLER,
+        caller
+    }
+}
+
+export function setCallerSignal (signal) {
+    return {
+        type: SET_CALLER_SIGNAL,
+        signal
+    }
+}
+
+export function setCallAccepted (boolean) {
+    return {
+        type: SET_CALL_ACCEPTED,
+        boolean
+    }
+}
+
