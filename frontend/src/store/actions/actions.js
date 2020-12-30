@@ -11,7 +11,7 @@ import {
     SET_RECEIVING_CALL,
     SET_CALLER,
     SET_CALLER_SIGNAL,
-    SET_CALL_ACCEPTED
+    SET_CALL_ACCEPTED, CALL_BEGIN
 } from './actionTypes';
 
 export function setLogin (login) {
@@ -100,6 +100,13 @@ export function setCallerSignal (signal) {
 export function setCallAccepted (boolean) {
     return {
         type: SET_CALL_ACCEPTED,
+        boolean
+    }
+}
+
+export function callBegin (boolean) {
+    return {
+        type: CALL_BEGIN,
         boolean
     }
 }

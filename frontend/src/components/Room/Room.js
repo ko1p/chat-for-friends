@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState} from "react";
+import React, {useRef, useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import './Room.css';
 import {
@@ -13,6 +13,7 @@ import {
     setCaller,
     setCallerSignal,
     setCallAccepted,
+    callBegin
 } from "../../store/actions/actions";
 import Peer from "simple-peer";
 import io from "socket.io-client";
@@ -43,9 +44,9 @@ export default function Chat() {
             .then(stream => {
                 console.log('установил свой локальный видео стрим')
                 dispatch(setStream(stream));
-                if (outputVideoRef.current) {
-                    outputVideoRef.current.srcObject = stream;
-                }
+                // if (outputVideoRef.current) {
+                //     outputVideoRef.current.srcObject = stream;
+                // }
             });
 
         socket.current.on('yourId', id => {
@@ -90,6 +91,12 @@ export default function Chat() {
             // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
+    const startLocalVideoStream = () => {
+        const stream = state.video.stream
+        if (outputVideoRef.current) {
+            outputVideoRef.current.srcObject = stream;
+        }
+    }
 
     const callPeer = id => {
         console.log('звоню пиру ', id)
@@ -119,6 +126,8 @@ export default function Chat() {
         })
 
         peer.on('stream', stream => {
+            dispatch(callBegin(true));
+            startLocalVideoStream();
             console.log('пришёл ответный стрим', stream)
             if (inputVideoRef.current) {
                 console.log("все ок, засовываю пришедший стрим в окошко")
@@ -150,6 +159,8 @@ export default function Chat() {
         });
 
         peer.on('stream', stream => {
+            dispatch(callBegin(true));
+            startLocalVideoStream();
             console.log('принял стрим, засовываю его в окошко', stream)
             inputVideoRef.current.srcObject = stream;
         })
@@ -182,10 +193,14 @@ export default function Chat() {
 
     return (
         <div className='container'>
-            <div className="video">
-                <video ref={inputVideoRef} className="video__input" playsInline autoPlay />
-                <video ref={outputVideoRef} className="video__output" playsInline autoPlay muted/>
-            </div>
+            {
+                state.video.callBegin && (
+                    <div className="video">
+                        <video ref={inputVideoRef} className="video__input" playsInline autoPlay />
+                        <video ref={outputVideoRef} className="video__output" playsInline autoPlay muted/>
+                    </div>
+                )
+            }
             {
                 state.video.receivingCall && !state.video.callAccepted && <button onClick={acceptCall}>Принять звонок</button>
             }
@@ -201,7 +216,7 @@ export default function Chat() {
                                     return (<li key={user + index}>{user.name}</li>)
                                 } else {
                                     return (
-                                        <li key={user + index} onClick={() => callPeer(user.id)} >{user.name} <img className="video__video-call-img" src={vci} /></li>
+                                        <li key={user + index} onClick={() => callPeer(user.id)} >{user.name} <img className="video__video-call-img" src={vci} alt="video-icon" /></li>
                                     )
                                 }
                             })

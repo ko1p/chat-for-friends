@@ -10,6 +10,7 @@ const initialState = {
     video: {
         receivingCall: false,
         callAccepted: false,
+        callBegin: false,
     }
 }
 

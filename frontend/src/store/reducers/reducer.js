@@ -11,7 +11,7 @@ import {
     SET_STREAM,
     SET_RECEIVING_CALL,
     SET_CALLER,
-    SET_CALLER_SIGNAL, SET_CALL_ACCEPTED
+    SET_CALLER_SIGNAL, SET_CALL_ACCEPTED, CALL_BEGIN
 } from "../actions/actionTypes";
 
 export default function reducer (state = initialState, action) {
@@ -118,6 +118,15 @@ export default function reducer (state = initialState, action) {
                 video: {
                     ...state.video,
                     callAccepted: action.boolean
+                }
+            }
+        }
+        case CALL_BEGIN: {
+            return {
+                ...state,
+                video: {
+                    ...state.video,
+                    callBegin: action.boolean
                 }
             }
         }
