@@ -1,8 +1,8 @@
 import React from "react";
 import {useSelector} from 'react-redux';
-import '../Login/Login.css';
+import '../Signin/Signin.css';
 import Room from "../Room/Room";
-import Login from "../Login/Login";
+import Signin from "../Signin/Signin";
 
 export default function Chat() {
 
@@ -12,6 +12,6 @@ export default function Chat() {
         state.login && state.chatId ? // если пользователь уже логинился, то он перейдёт в чат, если нет, то будет указывать логин
             <Room/>
             :
-            <Login/>
+            <Signin/>
     )
 }

@@ -38,7 +38,7 @@ export default function Chat() {
     const inputVideoRef = useRef();
 
     useEffect(() => {
-        socket.current = io('http://localhost:3000');
+        socket.current = io('https://chat-for-friends.herokuapp.com/');
 
         navigator.mediaDevices.getUserMedia({video: true, audio: true})
             .then(stream => {

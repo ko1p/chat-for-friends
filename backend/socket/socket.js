@@ -1,9 +1,9 @@
 const {getCurrentTime} = require('../utils/getCurrentTime');
 
-module.exports = function soket(http) {
+module.exports = function socket(server) {
     const rooms = new Map(); // здесь будем хранить информацию о созданных комнатах и юзерах, которые там сейчас находятся
     
-    const io = require('socket.io')(http, {
+    const io = require('socket.io')(server, {
         cors: {
             origin: "*", // чтобы хром не ругался на CORS
             methods: ["GET", "POST"],
@@ -33,25 +33,6 @@ module.exports = function soket(http) {
             console.log('Принимают звонок')
             io.to(data.to).emit('callAccepted', data.signal);
         })
-        
-        // if (peers.length === 0) {
-        //     console.log(peers)
-        //     peers.push(socket);
-        //     io.emit('client_socket', 0);
-        // } else if (peers.length === 1) {
-        //     console.log(socket)
-        //     peers.push(socket);
-        //     socket.emit('client_socket', peersSPDs[0]);
-        // }
-
-        // socket.on('server_socket', data => {
-        //     console.log(peers, peersSPDs, data)
-        //     if (peers.length < 3) {
-        //         peersSPDs.push(data);
-        //         console.log('послал дату', data)
-        //         io.broadcast.emit('client_socket', data)
-        //     }
-        // })
 
         socket.on('chat_join', ({chatId, name}) => { // при событии chat_join, присоединяемся к комнате, с chatId и name, которую указал клиент
             socket.join(chatId); // присоединяем его к комнате, с chatId и name, которую указал клиент
