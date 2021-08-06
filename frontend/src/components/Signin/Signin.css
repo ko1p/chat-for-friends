@@ -78,6 +78,7 @@ html, body {
 
 .signin-form__btn {
     margin: 20px 0;
+    padding: 5px;
     width: 50%;
     background-color: #FFF;
     color: #1E182B;
@@ -88,6 +89,7 @@ html, body {
     font-weight: 900;
     opacity: .8;
     transition: all .3s ease-in;
+    cursor: pointer;
 }
 
 .signin-form__btn:hover {
