@@ -81,10 +81,11 @@ module.exports = function socket(server) {
                         usersInfo.push({name: user, id: keys[index]})
                     }) // TODO переделать
                     socket.to(chatId).broadcast.emit('user_disconnect', usersInfo); // вышлет новый список юзеров на "фронт"
+                    console.log(socket.id, 'закрыл чат')
                     // socket.to(chatId).broadcast.emit('client_socket', {type: 'reset'});
                 }
 
-                delete videoUsers[soket.id];
+                // delete videoUsers[soket.id];
             })
             // peers = [];
             // peersSPDs = [];
