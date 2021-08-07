@@ -1,7 +1,4 @@
-.container {
-    display: flex;
-    flex-direction: column;
-    font-family: Roboto Slab, Tahoma, sans-serif;
+.wrapper {
     max-width: 40%;
     margin: 100px auto;
     min-width: 720px;
@@ -53,35 +50,13 @@
 }
 
 .messages {
-    display: flex;
-    flex-direction: column;
     flex: 1;
     height: calc(100% - 155px);
     overflow: auto;
 }
 
-.messages::-webkit-scrollbar {
-    width: 12px;
-    color: #7160ff;
-}
-
-.messages::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(113,96,255,0.3);
-    border-radius: 10px;
-}
-
-.messages::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-}
-
 .message {
     margin-bottom: 20px;
-    align-self: flex-end;
-}
-
-.message_my-msg {
-    align-self: flex-start;
 }
 
 .message p {
@@ -124,38 +99,3 @@
     width: 100%;
     margin-bottom: 10px;
 }
-
-.form-control {
-    outline: none;
-    border:1px solid #f6f9fa;
-    box-shadow: 0 0 4px #719ECE;
-    resize: none;
-}
-
-.btn {
-    font-family: Roboto Slab, Tahoma, sans-serif;
-    font-size: 15px;
-}
-
-.video__video-call-img {
-    width: 20px;
-    text-align: center;
-}
-
-.video {
-    margin: 0 auto;
-    width: 640px;
-    height: 240px;
-    background-color: #f5f0f0;
-}
-
-.video__output {
-    width: 320px;
-    height: 240px;
-}
-
-.video__input {
-    width: 320px;
-    height: 240px;
-}
-

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Signin from "./components/Signin/Signin";
-import Chat from "./components/Chat/Chat";
+import RoomSwitcher from "./components/RoomSwitcher/RoomSwitcher";
 
 class App extends Component {
     render() {
@@ -9,7 +9,7 @@ class App extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/" component={Signin}/>
-                    <Route exact path="/chat/:chatId" component={Chat}/>
+                    <Route exact path="/chat/:chatId" component={RoomSwitcher}/>
                 </Switch>
             </BrowserRouter>
         )
