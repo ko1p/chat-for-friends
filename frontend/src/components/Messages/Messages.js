@@ -1,5 +1,6 @@
-import React, {useEffect, useRef} from "react";
-import {useSelector} from "react-redux";
+import React, { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
+import { timeConverter } from "../../utils/utils";
 
 export const Messages = () => {
     const state = useSelector(state => state);
@@ -23,7 +24,7 @@ export const Messages = () => {
                     return (
                         <div className={cls} key={index + '_chat_msg'}>
                             <p className="message__text">{message.msg}</p>
-                            <span className="message__info">{message.name}, {message.time}</span>
+                            <span className="message__info">{message.name}, {timeConverter(message.time)}</span>
                             <div ref={lastMesRef} />
                         </div>
                     )
