@@ -6,7 +6,7 @@ const initialState = {
     chat: {
         users: [],
         messages: [],
-    },
+    }, // TODO: Убрать весь видео функционал
     video: {
         receivingCall: false,
         callAccepted: false,
