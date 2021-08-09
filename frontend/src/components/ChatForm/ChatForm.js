@@ -7,6 +7,11 @@ export const ChatForm = () => {
     const state = useSelector(state => state);
     const dispatch = useDispatch();
     const formRef = useRef();
+    const url = window.location.href;
+
+    const copyLink = () => {
+        navigator.clipboard.writeText(url);
+    }
 
     const sendMessage = (e) => { // фу-ция формирующая и отправляющая информацию о новом сообщении на сервер
         e.preventDefault();
@@ -32,9 +37,12 @@ export const ChatForm = () => {
         <form className="chat-form" ref={formRef} onSubmit={e => sendMessage(e)}>
             <textarea className="chat-form__field" value={state.currentMessage}
                 onChange={(e) => dispatch(setCurrentMessage(e.target.value))}
-                onKeyDown={(e) => onEnterPress(e)}>                            
+                onKeyDown={(e) => onEnterPress(e)}>
             </textarea>
-            <button type="submit" className="chat-form__btn">Отправить</button>
+            <div className="chat-form__buttons">
+                <button type="submit" className="chat-form__btn">Отправить</button>
+                <button type="button" className="chat-form__share-link-btn" onClick={() => copyLink()} />
+            </div>
         </form>
     )
 }
