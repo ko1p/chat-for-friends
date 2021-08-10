@@ -1,7 +1,7 @@
 module.exports.getCurrentTime = function getCurrentTime() {
     const date = new Date(Date.now());
     const hours = () => {
-        const hours = date.getHours() + 2;
+        const hours = date.getHours();
         return hours < 10 ? '0' + hours : hours;
     };
 
