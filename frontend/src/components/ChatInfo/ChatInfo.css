@@ -1,0 +1,136 @@
+.chat-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 20%;
+    background-color: #30293f;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0;
+}
+
+.chat-info__room {
+    margin: 0;
+    font-weight: 700;
+}
+
+.chat-info__room-code {
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0;
+}
+
+.chat-info__online {
+    margin: 10px 0 0 0;
+    font-weight: 700;
+}
+
+.chat-info__users {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.chat-info__user {
+    margin: 10px 0 0 0;
+    padding: 7px;
+    border-radius: 10px;
+    max-width: 70%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: 40px;
+    background-color: rgb(54, 103, 167);
+    color: #FFF;
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+    .chat-info {
+        width: 100%;
+        flex-direction: row;
+        box-sizing: border-box;
+        height: 15vh;
+        padding: 0;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .chat-info__room {
+        display: none;
+    }
+
+    .chat-info__room-code {
+        display: none;
+    }
+
+    .chat-info__online {
+        display: flex;
+        margin: 0 0 0 10px;
+        min-width: 100px;
+    }
+
+    .chat-info__users {
+        display: flex;
+    }
+
+    .chat-info__user {
+        margin: 0 0 0 10px;
+        font-size: 15px;
+        padding: 5px;
+    }
+
+    .chat-info__user:first-of-type {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 374px) {
+    .chat-info {
+        width: 100%;
+        flex-direction: row;
+        box-sizing: border-box;
+        height: 15vh;
+        padding: 0;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .chat-info__room {
+        display: none;
+    }
+
+    .chat-info__room-code {
+        display: none;
+    }
+
+    .chat-info__online {
+        display: flex;
+        margin: 0 0 0 10px;
+        min-width: 85px;
+        font-size: 15px;
+    }
+
+    .chat-info__users {
+        display: flex;
+    }
+
+    .chat-info__user {
+        margin: 0 0 0 5px;
+        font-size: 13px;
+        padding: 5px;
+    }
+
+    .chat-info__user:first-of-type {
+        margin: 0;
+    }
+}

@@ -1,12 +1,12 @@
 {
-  "name": "chat_backend",
+  "name": "chat",
   "version": "1.0.0",
-  "description": "test chat ",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index",
-    "server": "nodemon index"
+    "start": "nodemon app",
+    "server": "nodemon app"
   },
   "keywords": [
     "chat",
@@ -18,6 +18,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "nodemon": "^2.0.12",
     "peer": "^0.6.1",
     "socket.io": "^3.0.4"
   }

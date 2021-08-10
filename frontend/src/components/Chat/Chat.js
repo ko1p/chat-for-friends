@@ -3,17 +3,9 @@ import {useDispatch, useSelector} from 'react-redux';
 import './Chat.css';
 import {
     setChatUserList,
-    // clearCurrentMessage,
-    // setCurrentMessage,
     setChatMessage,
     setChatMessages,
-    setUserId,
-    // setStream,
-    // setReceivingCall,
-    // setCaller,
-    // setCallerSignal,
-    // setCallAccepted,
-    // callBegin
+    setUserId
 } from "../../store/actions/actions";
 import {ChatInfo} from "../ChatInfo/ChatInfo";
 import {ChatMessages} from "../ChatMessages/ChatMessages";
@@ -50,8 +42,8 @@ export const Chat = () => {
     return (
         <main className="main">
             <div className="chat">
-                <ChatInfo />
-                <ChatMessages />
+                <ChatInfo/>
+                <ChatMessages/>
             </div>
         </main>
     )

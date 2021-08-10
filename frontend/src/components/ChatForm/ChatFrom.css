@@ -1,0 +1,106 @@
+.chat-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20vh;
+    background-color: #30293f;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.chat-form__field {
+    width: 100%;
+    height: 60%;
+    box-sizing: border-box;
+    resize: none;
+    background-color: #30293f;
+    outline: none;
+    color: #FFF;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+    transition: box-shadow .3s ease-in;
+}
+
+.chat-form__field:focus {
+    box-shadow: 0 0 10px 9px rgb(87, 61, 104);
+}
+
+.chat-form__field::-webkit-scrollbar {
+    width: 12px;
+    color: #7160ff;
+}
+
+.chat-form__field::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(51, 41, 58, 0.7);
+    border-radius: 10px;
+}
+
+.chat-form__field::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.671);
+}
+
+.chat-form__buttons {
+    display: flex;
+}
+
+.chat-form__btn {
+    max-width: 150px;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: rgb(54, 103, 167);
+    color: #FFF;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color .3s ease-in;
+}
+
+.chat-form__btn:hover {
+    background-color: rgb(40, 74, 119);
+}
+
+.chat-form__share-link-btn {
+    position: relative;
+    margin: 10px 0 0 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url('../../images/copy.png');
+    background-size: cover;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.chat-form__share-link-btn:hover::after {
+    content: "Копировать ссылку";
+    position: absolute;
+    left: 6px;
+    right: 0;
+    bottom: 2px;
+    z-index: 1;
+    color: #fff;
+    text-align: center;
+    font-size: 11px;
+    padding: 0 31px;
+}
+
+@media screen and (max-width: 374px) {
+    .chat-form__field {
+        font-size: 13px;
+    }
+
+    .chat-form__field:focus {
+        box-shadow: 0 0 5px 4px rgb(87, 61, 104);
+    }
+
+    .chat-form__btn {
+        font-size: 13px;
+    }
+}

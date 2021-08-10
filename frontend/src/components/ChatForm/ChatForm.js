@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
-import { clearCurrentMessage, setCurrentMessage } from "../../store/actions/actions";
-import { useDispatch, useSelector } from "react-redux";
-import { socket } from '../../socket/socket';
+import React, {useRef} from "react";
+import './ChatFrom.css';
+import {clearCurrentMessage, setCurrentMessage} from "../../store/actions/actions";
+import {useDispatch, useSelector} from "react-redux";
+import {socket} from '../../socket/socket';
 
 export const ChatForm = () => {
     const state = useSelector(state => state);
@@ -36,12 +37,12 @@ export const ChatForm = () => {
     return (
         <form className="chat-form" ref={formRef} onSubmit={e => sendMessage(e)}>
             <textarea className="chat-form__field" value={state.currentMessage}
-                onChange={(e) => dispatch(setCurrentMessage(e.target.value))}
-                onKeyDown={(e) => onEnterPress(e)}>
+                      onChange={(e) => dispatch(setCurrentMessage(e.target.value))}
+                      onKeyDown={(e) => onEnterPress(e)}>
             </textarea>
             <div className="chat-form__buttons">
                 <button type="submit" className="chat-form__btn">Отправить</button>
-                <button type="button" className="chat-form__share-link-btn" onClick={() => copyLink()} />
+                <button type="button" className="chat-form__share-link-btn" onClick={() => copyLink()}/>
             </div>
         </form>
     )

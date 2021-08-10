@@ -1,4 +1,5 @@
 import React from "react";
+import './ChatInfo.css';
 import {useSelector} from "react-redux";
 
 export const ChatInfo = () => {

@@ -1,5 +1,3 @@
-const {getCurrentTime} = require('../utils/getCurrentTime');
-
 module.exports = function socket(server) {
     const rooms = new Map(); // здесь будем хранить информацию о созданных комнатах и юзерах, которые там сейчас находятся
     
@@ -15,13 +13,13 @@ module.exports = function socket(server) {
     const videoUsers = {};
 
     io.on('connection', socket => {
-        socket.emit('user_connect', socket.id); // сообщаяем клиенту наш soketId
+        socket.emit('user_connect', socket.id); // сообщаяем клиенту наш socketId
 
         if (!videoUsers[socket.id]) {
             videoUsers[socket.id] = socket.id;
         }
 
-        socket.emit('yourId', socket.id); // сообщаяем клиенту наш soketId
+        socket.emit('yourId', socket.id); // сообщаяем клиенту наш socketId
         io.sockets.emit("allUsers", videoUsers, 'allusersVideo');
 
         socket.on('callUser', data => {
@@ -47,22 +45,19 @@ module.exports = function socket(server) {
             } else {
                 rooms.get(chatId).get('users').set(socket.id, name);
             }
-            // const users = [...rooms.get(chatId).get('users').values()]; // формируем список пользователей в конкретной комнате
-            const users = [...rooms.get(chatId).get('users').values()];
+            const users = [...rooms.get(chatId).get('users').values()]; // формируем список пользователей в конкретной комнате
             const keys = [...rooms.get(chatId).get('users').keys()];
             const usersInfo = [];
             users.forEach((user, index) => {
                 usersInfo.push({name: user, id: keys[index]})
             }) // TODO переделать
             const messages = [...rooms.get(chatId).get('messages')];
-            // io.to(chatId).emit('user_join', users); // высылаем список клиентов на "фронт"
-            io.to(chatId).emit('user_join', usersInfo, messages); // высылаем список клиентов на "фронт"
-            
+            io.to(chatId).emit('user_join', usersInfo, messages); // высылаем список клиентов на "фронт"         
             console.log(rooms.get(chatId).get('users'));
         })
 
         socket.on('chat_message', ({chatId, name, msg}) => { // при событии "chat_mesage"
-            const time = getCurrentTime(); // формирую текущее время сообщения
+            const time = new Date(Date.now()); // формирую текущее время сообщения
             const messageInfo = { // собираю в один объект, дату, текст, имя пользователя
                 msg, time, name
             };
@@ -72,7 +67,7 @@ module.exports = function socket(server) {
         })
 
         socket.on('disconnect', () => { // при событии отключения от сокета
-            rooms.forEach((value, chatId) => { // пробежится по всем значениям(каждой комнате), зайдёт в юзерс и удалит его если soket.id совпадет с удаляемым
+            rooms.forEach((value, chatId) => { // пробежится по всем значениям(каждой комнате), зайдёт в юзерс и удалит его если socket.id совпадет с удаляемым
                 if (value.get('users').delete(socket.id)) {
                     const users = [...rooms.get(chatId).get('users').values()];
                     const keys = [...rooms.get(chatId).get('users').keys()];
@@ -82,14 +77,10 @@ module.exports = function socket(server) {
                     }) // TODO переделать
                     socket.to(chatId).broadcast.emit('user_disconnect', usersInfo); // вышлет новый список юзеров на "фронт"
                     console.log(socket.id, 'закрыл чат')
-                    // socket.to(chatId).broadcast.emit('client_socket', {type: 'reset'});
                 }
 
-                // delete videoUsers[soket.id];
+                // delete videoUsers[socket.id];
             })
-            // peers = [];
-            // peersSPDs = [];
         })
     })
-
 }
