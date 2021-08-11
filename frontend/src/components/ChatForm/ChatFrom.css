@@ -91,7 +91,17 @@
     padding: 0 31px;
 }
 
+@media screen and (min-width: 375px) and (max-width: 767px) {
+    .chat-form {
+        height: 35%;
+    }
+}
+
 @media screen and (max-width: 374px) {
+    .chat-form {
+        height: 35%;
+    }
+
     .chat-form__field {
         font-size: 13px;
     }

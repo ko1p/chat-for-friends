@@ -54,14 +54,14 @@
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
     .messages {
-        height: 65vh;
+        height: 65%;
         width: 100%;
     }
 }
 
 @media screen and (max-width: 374px) {
     .messages {
-        height: 60vh;
+        height: 80%;
         width: 100%;
     }
 
